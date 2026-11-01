@@ -1,38 +1,332 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background: #f4f6fb;
+  font-family: 'Segoe UI', sans-serif;
+  color: #263248;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.navbar {
+  background: #ffffff !important;
+  padding: 16px 0;
+}
+
+.navbar-brand {
+  font-weight: 750;
+  color: #5145cd !important;
+  font-size: 23px;
+}
+
+.todo-main {
+  flex: 1;
+  padding: 45px 0 60px;
+}
+
+.todo-container {
+  max-width: 850px;
+}
+
+.page-heading {
+  margin-bottom: 28px;
+}
+
+.welcome-text {
+  color: #6658d3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.page-heading h1 {
+  font-size: 36px;
+  font-weight: 750;
+  margin: 8px 0;
+}
+
+.page-heading p {
+  color: #7c8495;
+}
+
+.todo-form-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(30, 40, 80, 0.06);
+  margin-bottom: 35px;
+}
+
+.todo-form .form-label {
+  font-weight: 600;
+  color: #38445b;
+}
+
+.todo-form .form-control {
+  border: 1px solid #e1e5ef;
+  border-radius: 9px;
+  padding: 11px 13px;
+}
+
+.todo-form .form-control:focus {
+  border-color: #7668df;
+  box-shadow: 0 0 0 3px rgba(118, 104, 223, 0.12);
+}
+
+.add-todo-btn {
+  background: #6254d6 !important;
+  border: none !important;
+  padding: 10px 22px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.add-todo-btn:hover {
+  background: #4d40bd !important;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #edf0f6;
+  box-shadow: 0 4px 15px rgba(30, 40, 80, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(30, 40, 80, 0.09);
+}
+
+.todo-title-row {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-title-row h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  overflow-wrap: anywhere;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo-content p {
+  color: #7b8495;
+  margin: 12px 0 18px;
+  overflow-wrap: anywhere;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.status-badge.pending {
+  background: #fff3d8;
+  color: #a46b08;
+}
+
+.status-badge.done {
+  background: #dff7e9;
+  color: #21834c;
+}
+
+.todo-card.completed {
+  border-left: 4px solid #32ad70;
+}
+
+.todo-card.completed h4 {
+  text-decoration: line-through;
+  color: #929baa;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-actions .btn {
+  border-radius: 8px;
+  padding: 7px 17px;
+  font-size: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  background: white;
+  padding: 40px 20px;
+  border-radius: 14px;
+  color: #7b8495;
+}
+
+.empty-state h5 {
+  color: #38445b;
+  font-weight: 700;
+}
+
+footer {
+  background: white;
+  color: #7b8495;
+  padding: 18px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .todo-main {
+    padding: 28px 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .page-heading h1 {
+    font-size: 29px;
+  }
+
+  .todo-form-card,
+  .todo-card {
+    padding: 17px;
+  }
+
+  .todo-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+/* HEADER */
+
+.custom-navbar {
+  background: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 3px 15px rgba(30, 40, 80, 0.07);
+  border-bottom: 1px solid #eeeef5;
+}
+
+.brand-logo {
+  font-size: 23px !important;
+  font-weight: 750;
+  color: #5145cd !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  background: #6254d6;
+  color: white;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.nav-item-custom {
+  color: #596176 !important;
+  font-weight: 600;
+  margin-left: 15px;
+  transition: color 0.2s;
+}
+
+.nav-item-custom:hover {
+  color: #6254d6 !important;
+}
+
+/* FOOTER */
+
+.custom-footer {
+  background: #25243b;
+  color: #ffffff;
+  padding: 35px 0 15px;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-brand span {
+  color: #a69cfb;
+  margin-right: 7px;
+}
+
+.footer-content p {
+  color: #b9b8c9;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: #d5d3e5;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #a69cfb;
+}
+
+.custom-footer hr {
+  border-color: #55536c;
+  margin: 25px 0 15px;
+}
+
+.copyright {
+  text-align: center;
+  color: #aaa8bd;
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
   }
 }
